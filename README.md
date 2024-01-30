@@ -15,14 +15,14 @@ After the audit, the passed nodes participate in the operation of certus-chain. 
 
 Pallet: certus-oracle
 - submit_local_xray An offline method that submits and saves the local publicly data by the validator node to the chain for debugging.
-- submit_ask_price Submit an ares-price request, The request is processed by all online validators, and the aggregated result is returned immediately.
+- submit_ask_data Submit an certus-data request, The request is processed by all online validators, and the aggregated result is returned immediately.
 - submit_forced_clear_purchased_price_payload_signed An offline method that submits and saves the purchase-result data. If the count of validator submitted by purchase-id already reached the threshold requirements, then average price will be aggregation and mark PURCHASED_FINAL_TYPE_IS_PART_PARTICIPATE
 
 - submit_purchased_price_unsigned_with_signed_payload An offline method that submits and saves the purchase-result data. If all validators submit price-result, then average price will be aggregation and mark PURCHASED_FINAL_TYPE_IS_ALL_PARTICIPATE
 
-- submit_price_unsigned_with_signed_payload An offline method that submits and saves the free certus-price results.
+- submit_price_unsigned_with_signed_payload An offline method that submits and saves the free certus-data results.
 
-- submit_create_pre_check_task Submit a pre-check task. When a new validator is elected, a pre_check_task task will be submitted through this method within a specific period. This task is used to ensure that the certus-price response function of the validator node can be used normally.
+- submit_create_pre_check_task Submit a pre-check task. When a new validator is elected, a pre_check_task task will be submitted through this method within a specific period. This task is used to ensure that the certus-data response function of the validator node can be used normally.
 
 - submit_offchain_pre_check_result When the validator responds to the pre-check task, the pre-check result data is submitted to the chain. If approved, it will be passed in the next election cycle, not immediately.
 
