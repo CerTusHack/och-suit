@@ -2,7 +2,7 @@
 # Project Overview
 Certus Protocol is a decentralized cross-chain Oracle that truly implements a new generation of cross-chain Oracle service protocol for data on-chain verification, and open a compensation channel for data users who suffer business losses from using Oracle data.
 
-Certus Protocol is a stochastic secure Oracle solution developed based on the Substrate framework, supporting hybrid Babe and off-chain workhorses, incorporating on-chain governance, bringing the Optimistic challenge model into the Oracle space, supporting the Ink contract ecosystem, and bringing better quality Oracle services to Defi developers.
+Certus Protocol is a stochastic secure Oracle solution developed based on the Substrate framework, supporting hybrid Babe and off-chain workhorses, incorporating on-chain governance, bringing the Optimistic challenge model into the Oracle space, supporting the Ink contract ecosystem, and bringing better quality Oracle services to blockchain developers.
 
 # Project Details
 The project structure consists of staking-extends that control Pallet-Staking, certus-oracle that controls quotation and audit work, oracle-politics that controls political management, and their high-level abstraction layer oracle-provider-support.
