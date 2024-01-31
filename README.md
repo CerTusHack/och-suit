@@ -55,15 +55,15 @@ Certus-oracle obtains the newly elected validator through the IStakingNpos::pend
 Use the IStakingNpos::near_era_change trait to determine whether the session period close to the election has been reached, and if so, submit the new verification task to the chain through submit_offchain_pre_check_result extrinsics.
 Validators that do not pass the review will not appear in the list of targets for elections.
 
-# Free Trade-price
+# Free Trade-data
 
 When the offchain is working, the block author of the current block will be obtained according to the data provided by authorship.
-If the "authority-id" corresponding to the block author is consistent with the local "keystore", obtain the list of "transaction pairs" corresponding to the block, and send an http request to obtain its price, then call the submit_price_unsigned_with_signed_payload extrinsics upload the result to the chain .
+If the "authority-id" corresponding to the block author is consistent with the local "keystore", obtain the list of "transaction information" corresponding to the block, and send an http request to obtain its data, then call the submit_data_unsigned_with_signed_payload extrinsics upload the result to the chain .
 The chain will verify whether the submission matches the block author of the current block, and if so, the result will be stored in the data pool.
 When the data pool reaches the specified depth (this depth can be modified by the extrinsics update_pool_depth_propose), the average data aggregation event Event::AggregatedData occurs, which will generate data to the chain.
 The data related to a politics can be read through the certusOracle.certusData store.
 
-# Paid Trade-price
+# Paid Trade-data
 
 Users can submit a submit_ask_data transaction to have all nodes on the chain make an offer, but this requires payment some fee, which is more time-sensitive than getting the data for free.
 If submit a task successfully, you need to get the purchase_id from the Event::NewPurchasedRequest event, which will be used as the associated key value for other queries. The amount of payment is related to the number of data requests. If the nodes participating in the response are less than the response threshold, the task will fail, and the fee will not be deducted. (This threshold can be modified by extrinsics update_purchased_param).
@@ -73,7 +73,7 @@ Once the data are aggregated successfully, an Event::PurchasedData event will be
 
 - has_pre_check_task Determine whether there is a pre-check task for the validator through a stash account.
 
-- get_pre_task_by_authority_set Get the pre-check information related to a certain ares-authority collection, the specific matching authority-id, account-id, and the block submitted by the task. Precheck tasks that only match the first certus-authority
+- get_pre_task_by_authority_set Get the pre-check information related to a certain certus-authority collection, the specific matching authority-id, account-id, and the block submitted by the task. Precheck tasks that only match the first certus-authority
 
 - check_and_clean_obsolete_task Trigger this method on a specific cycle to clean up too old and passed tasks
 
@@ -168,4 +168,4 @@ If session is enabled, certus-oracle needs to be configured into SessionKey.
 - DataProvider of frame_election_provider_support::onchain::Config is set to staking_extend::data::DataProvider
 - DataProvider of pallet_election_provider_multi_phase::Config is set to staking_extend::data::DataProvider<Self>
 - After that, the staking election request will be sent to staking_extend, and then the Election module will also obtain the candidate list from staking_extend, and the adapter connection is successful.
-- Call the pending_npos method to obtain a list of the new elected list, and then cooperate with the implementation of the IAresOraclePreCheck::get_pre_check_status trait to block the newly selected validator.
+- Call the pending_npos method to obtain a list of the new elected list, and then cooperate with the implementation of the ICertusOraclePreCheck::get_pre_check_status trait to block the newly selected validator.
