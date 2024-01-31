@@ -9,7 +9,8 @@ The project structure consists of staking-extends that control Pallet-Staking, c
 
 From the perspective of validators, new nodes will have the opportunity to apply to become validators of certus-chain by staking on Pallet-Staking. The staking-extends module is responsible for capturing new validators, and certus-oracle is responsible for creating audit tasks for new validators. and ask these nodes to execute, If the node executes successfully, it means that the audit is passed, otherwise the staking-extend module will remove the failed ones and make it impossible to participate in the election normally.
 
-After the audit, the passed nodes participate in the operation of certus-chain. In addition to enjoying the normal NPos rewards, they can also receive commissions for paid quotations. These proof-of-work and reward distribution are all done through the oracle-finance module.
+After the audit, the passed nodes participate in the operation of certus-chain. In addition to enjoying the normal NPos rewards, they can also receive commissions for paid quotations. These proof-of-work and reward distribution are all done through the oracle-politics module.
+![Diagram](<project overview.png>)
 
 # certus-component-workflow
 
